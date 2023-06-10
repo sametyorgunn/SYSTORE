@@ -6,6 +6,7 @@
 *Csharp linguist-detectable=true
 *html linguist-detectable=false
 *javascript linguist-detectable=false
+*TaypScript linguist-detectable=false
 
 ###############################################################################
 # Set default behavior for command prompt diff.
