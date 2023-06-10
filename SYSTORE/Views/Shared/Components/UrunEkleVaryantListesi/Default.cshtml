@@ -1,0 +1,8 @@
+﻿@model List<EntityLayer.Entities.Varyant>
+
+<select class="form-select select2-accessible" name="Id" data-placeholder="Select a variation" data-kt-ecommerce-catalog-add-product="product_option" data-select2-id="select2-data-127-pp26" tabindex="-1" aria-hidden="true">
+   @foreach(var i in Model)
+    {
+        <option value="@i.Id">@i.VaryantAdi</option>
+    }
+</select>

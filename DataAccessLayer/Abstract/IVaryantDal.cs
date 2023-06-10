@@ -1,0 +1,18 @@
+﻿using DataAccessLayer.Abstract.Generic;
+using EntityLayer.Entities;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace DataAccessLayer.Abstract
+{
+	public interface IVaryantDal:IGenericDal<Varyant>
+	{
+		Varyant VaryantGetirDegerlerIle(int id);
+
+		List<Varyant> VaryantDegerGetir();
+		
+	}
+}

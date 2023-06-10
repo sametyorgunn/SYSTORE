@@ -1,0 +1,214 @@
+﻿@model EntityLayer.Entities.Varyant
+@{
+    ViewData["Title"] = "VaryantDuzenle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<div id="kt_app_content" class="app-content  flex-column-fluid ">
+    <div id="kt_app_content_container" class="app-container  container-xxl ">
+        <form id="" class="d-flex flex-column flex-lg-row fv-plugins-bootstrap5 fv-plugins-framework" method="post">
+            <div class="d-flex flex-column gap-7 gap-lg-10 w-100 w-lg-300px mb-7 me-lg-10">
+                <div class="card card-flush py-4">
+                    <div class="card-header">
+                        <div class="card-title">
+                            <h2>Varyant Fotoğrafı</h2>
+                        </div>
+                    </div>
+
+                    <div class="card-body text-center pt-0">
+                        <style>
+                            .image-input-placeholder {
+                                background-image: url('assets/media/svg/files/blank-image.svg');
+                            }
+
+                            [data-bs-theme="dark"] .image-input-placeholder {
+                                background-image: url('assets/media/svg/files/blank-image-dark.svg');
+                            }
+                        </style>
+
+                        <div class="image-input image-input-empty image-input-outline image-input-placeholder mb-3" data-kt-image-input="true">
+                            <div class="image-input-wrapper w-150px h-150px"></div>
+
+                            <label class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="change" data-bs-toggle="tooltip" aria-label="Avatarı değiştir" data-bs-original-title="Avatarı değiştir" data-kt-initialized="1">
+                                <i class="bi bi-pencil-fill fs-7"></i>
+
+                                <input type="file" name="VaryantDegerResim" accept=".png, .jpg, .jpeg">
+                                <input type="hidden" name="avatar_remove">
+                            </label>
+
+                            <span class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="cancel" data-bs-toggle="tooltip" aria-label="Avatarı Sil" data-bs-original-title="Avatarı Sil" data-kt-initialized="1">
+                                <i class="bi bi-x fs-2"></i>
+                            </span>
+
+                            <span class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="remove" data-bs-toggle="tooltip" aria-label="Avatarı Sil" data-bs-original-title="Avatarı Sil" data-kt-initialized="1">
+                                <i class="bi bi-x fs-2"></i>
+                            </span>
+                        </div>
+
+                        <div class="text-muted fs-7">Varyant küçük resmini ayarlayın. Yalnızca *.png, *.jpg ve *.jpeg resim dosyaları kabul edilir</div>
+                    </div>
+                </div>
+                <div class="card card-flush py-4">
+                    <div class="card-header">
+                        <div class="card-title">
+                            <h2>Durum</h2>
+                        </div>
+                    </div>
+
+                    <div class="card-body pt-0">
+                        <select class="form-select mb-2" name="VaryantDurumu" data-control="select2" data-placeholder="Bir seçenek seçin">
+                            <option></option>
+                            @{
+                                if(Model.VaryantDurumu == 1)
+                                {
+                                    <option value="1" selected>Aktif</option>
+                                    <option value="0" >Pasif</option>
+
+                                }
+                                else
+                                {
+                                    <option value="0" selected>Pasif</option>
+                                    <option value="1" >Aktif</option>
+                                }
+                            }
+                        </select>
+                        <div class="text-muted fs-7">Varyant durumunu ayarlayın.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="d-flex flex-column flex-row-fluid gap-7 gap-lg-10">
+                <div class="card card-flush py-4">
+                    <div class="card-header">
+                        <div class="card-title">
+                            <h2>Genel</h2>
+                        </div>
+                    </div>
+
+                    <div class="card-body pt-0">
+                        <div class="mb-10 fv-row fv-plugins-icon-container">
+                            <label class="required form-label">Varyant Adı</label>
+
+                            <input type="text" name="VaryantAdi" id="varadi" class="form-control mb-2" placeholder="" value="@Model.VaryantAdi">
+                            <input type="text" name="VaryantId" id="varyantid" class="form-control mb-2" placeholder="" value="@Model.Id" hidden>
+
+
+
+
+                            <div class="text-muted fs-7">Bir varyant adı gereklidir ve benzersiz olması önerilir.</div>
+                            <div class="fv-plugins-message-container invalid-feedback"></div>
+                        </div>
+
+                        <div>
+                            <label class="form-label">Varyant İçeriği</label>
+                            
+                            <div id="urunvaryantlar">
+                                <div class="form-group">
+                                    <div data-repeater-list="DegerlerDizi">
+                                         @foreach(var i in Model.VaryantDegers)
+                                                {
+                                        <div data-repeater-item>
+                                           
+                                            <div class="form-group row mb-5">
+                                                
+                                                    <div class="col-md-3">
+                                                        <input type="text" value="@i.VaryantDegerAdi" name="Deger" class="form-control mb-2 mb-md-0 degers" placeholder="Varyant İçeriği" />
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <input hidden type="text" value="@i.Id" name="Id" class="form-control mb-2 mb-md-0 degers" placeholder="Varyant İçeriği" />
+                                                    </div>
+                                                    <div class="col-md-2 mt-2">
+                                                        <a href="javascript:;" data-repeater-delete class="btn btn-sm btn-light-danger mt-2mb2 silbtn" value="@i.Id">
+                                                            <i class="la la-trash-o fs-3"></i>Sil
+                                                        </a>
+                                                    </div>
+                                            </div>
+                                        </div>
+                                        }
+                                    </div>
+                                </div>
+                                <div class="form-group mb-2">
+                                    <a href="javascript:;" data-repeater-create class="btn btn-sm btn-light-primary">
+                                        <i class="la la-plus"></i>Başka bir varyasyon ekle
+                                    </a>
+                                </div>
+                                <div class="text-muted fs-7">Daha iyi filtreleme için varyant içeriği ayarlayın.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="d-flex justify-content-end">
+                    <a href="javascript:void(0)" id="kt_ecommerce_add_product_cancel" class="btn btn-light me-5">
+                        Geri
+                    </a>
+
+
+                    @*                                            //id kt_ecommerce_add_category_submit
+                    *@<button type="submit" id="ffff" class="btn btn-primary">
+                        <span class="indicator-label">
+                            Değişiklikleri Kaydet
+                        </span>
+                        <span class="indicator-progress">
+                            Lütfen bekleyin... <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+                        </span>
+                    </button>
+                </div>
+            </div>
+        </form>
+        
+    </div>
+</div>
+@section scripts{
+
+    <script>
+
+        $("#urunvaryantlar").repeater({
+            initEmpty: false,
+            defaultValues: {
+                'text-input': 'foo'
+            },
+            show: function () {
+                $(this).slideDown();
+                $(this).find('[data-kt-repeater="select2"]').select2();
+                $(this).find('[data-kt-repeater="datepicker"]').flatpickr();
+                new Tagify(this.querySelector('[data-kt-repeater="tagify"]'));
+            },
+            hide: function (deleteElement) {
+                $(this).slideUp(deleteElement);
+            },
+            ready: function () {
+                $('[data-kt-repeater="select2"]').select2();
+                $('[data-kt-repeater="datepicker"]').flatpickr();
+                new Tagify(document.querySelector('[data-kt-repeater="tagify"]'));
+            }
+        });
+
+        $(".silbtn").click(function(){
+            debugger
+            var id = $(this).attr("value");
+            $.post("/Admin/Varyant/VaryantSil/",{id:id})
+        })
+
+
+    </script>
+   @* <script>
+        $("#ffff").click(function () {
+            debugger
+
+            var degerid = $("#degerid").val();
+            var varyantid = $("#varyantid").val();
+            var mapid = $("#mapid").val();
+
+            var varadi = $("#varadi").val();
+            var varyantdegerlers = [];
+            $(".degers").each(function () {
+                varyantdegerlers.push($(this).val());
+            });
+
+            $.post("/Admin/Varyant/VaryantDuzenle", { VaryantDegerMapId: mapid, DegerId: degerid, VaryantId: varyantid, VaryantAdi: varadi, D: varyantdegerlers })
+        });
+    </script>*@
+}
+

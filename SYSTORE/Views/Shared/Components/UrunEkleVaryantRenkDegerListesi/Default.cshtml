@@ -1,0 +1,8 @@
+﻿@model List<EntityLayer.Entities.VaryantDeger>
+
+<select class="form-select" name="d1">
+    @foreach (var i in Model)
+    {
+        <option value="@i.Id">@i.VaryantDegerAdi</option>
+    }
+</select>

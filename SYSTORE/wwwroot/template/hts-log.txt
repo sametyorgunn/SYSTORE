@@ -1,0 +1,18 @@
+HTTrack3.49-2+htsswf+htsjava launched on Tue, 25 Apr 2023 00:38:03 at https://themezhub.net/kumo-demo-2/kumo/home-16.html +*.png +*.gif +*.jpg +*.jpeg +*.css +*.js -ad.doubleclick.net/* -mime:application/foobar
+(winhttrack -qwC2%Ps2u1%s%uN0%I0p3DaK0H0%kf2A25000%f#f -F "Mozilla/4.5 (compatible; HTTrack 3.0x; Windows 98)" -%F "<!-- Mirrored from %s%s by HTTrack Website Copier/3.x [XR&CO'2014], %s -->" -%l "en, *" https://themezhub.net/kumo-demo-2/kumo/home-16.html -O1 "C:\My Web Sites\Sneaker Site" +*.png +*.gif +*.jpg +*.jpeg +*.css +*.js -ad.doubleclick.net/* -mime:application/foobar )
+
+Information, Warnings and Errors reported for this mirror:
+note:	the hts-log.txt file, and hts-cache folder, may contain sensitive information,
+	such as username/password authentication for websites mirrored in this project
+	do not share these files/folders if you want these information to remain private
+
+00:39:05	Error: 	"Not Found" (404) at link https://themezhub.net/kumo-demo-2/kumo/product.html (from https://themezhub.net/kumo-demo-2/kumo/shoping-cart.html)
+00:39:05	Error: 	"Not Found" (404) at link https://themezhub.net/kumo-demo-2/kumo/shop.html (from https://themezhub.net/kumo-demo-2/kumo/shoping-cart.html)
+00:39:05	Error: 	"Not Found" (404) at link https://themezhub.net/kumo-demo-2/kumo/assets/img/paypal.png (from https://themezhub.net/kumo-demo-2/kumo/checkout.html)
+00:39:05	Error: 	"Not Found" (404) at link https://themezhub.net/kumo-demo-2/kumo/assets/img/strip.png (from https://themezhub.net/kumo-demo-2/kumo/checkout.html)
+00:39:05	Error: 	"Not Found" (404) at link https://themezhub.net/kumo-demo-2/kumo/assets/img/debit.png (from https://themezhub.net/kumo-demo-2/kumo/checkout.html)
+00:39:05	Error: 	"Not Found" (404) at link https://themezhub.net/kumo-demo-2/kumo/assets/css/plugins/fonts/slick.svg (from https://themezhub.net/kumo-demo-2/kumo/assets/css/plugins/slick-theme.css)
+00:39:05	Error: 	"Not Found" (404) at link https://themezhub.net/kumo-demo-2/kumo/assets/css/plugins/fonts/LineIcons.eot (from https://themezhub.net/kumo-demo-2/kumo/assets/css/plugins/line-icons.css)
+
+HTTrack Website Copier/3.49-2 mirror complete in 1 minutes 4 seconds : 252 links scanned, 244 files written (26469168 bytes overall) [20611881 bytes received at 322060 bytes/sec], 8518971 bytes transferred using HTTP compression in 108 files, ratio 29%, 42.0 requests per connection
+(7 errors, 0 warnings, 0 messages)

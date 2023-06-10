@@ -1,0 +1,97 @@
+﻿@model EntityLayer.Entities.Marka
+
+@{
+    ViewData["Title"] = "MarkaDuzenle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+
+<div class="content d-flex flex-column flex-column-fluid" id="kt_content">
+	<!--begin::Container-->
+	<div id="kt_content_container" class="container-xxl">
+
+		<div class="card mb-5 mb-xl-10">
+			<!--begin::Card header-->
+			<div class="card-header border-0 cursor-pointer" role="button" data-bs-toggle="collapse" data-bs-target="#kt_account_profile_details" aria-expanded="true" aria-controls="kt_account_profile_details">
+				<!--begin::Card title-->
+				<div class="card-title m-0">
+					<h3 class="fw-bolder m-0">Marka Düzenle</h3>
+				</div>
+				<!--end::Card title-->
+			</div>
+
+			<div id="kt_account_profile_details" class="collapse show">
+				<!--begin::Form-->
+				<form id="kt_account_profile_details_form" enctype="multipart/form-data" method="post" class="form fv-plugins-bootstrap5 fv-plugins-framework" novalidate="novalidate">
+					<!--begin::Card body-->
+					<div class="card-body border-top p-9">
+
+						<div class="row mb-6">
+							<!--begin::Label-->
+							<label class="col-lg-4 col-form-label fw-bold fs-6">
+								<span class="required">Marka Adı</span>
+								<i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" title="" data-bs-original-title="Marka Girin" aria-label=""></i>
+							</label>
+							<!--end::Label-->
+							<!--begin::Col-->
+							<div class="col-lg-8 fv-row fv-plugins-icon-container">
+								<input type="text" name="MarkaAdi" class="form-control form-control-lg form-control-solid" placeholder="Marka adı" value="@Model.MarkaAdi">
+								<div class="fv-plugins-message-container invalid-feedback"></div>
+							</div>
+							<!--end::Col-->
+						</div>
+						<input name="Id" hidden value="@Model.Id" />
+						<div class="row mb-6">
+							<!--begin::Label-->
+							<label class="col-lg-4 col-form-label fw-bold fs-6">
+								<span class="required">Durumu</span>
+								<i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" title="" data-bs-original-title="Country of origination" aria-label="Country of origination"></i>
+							</label>
+							<!--end::Label-->
+							<!--begin::Col-->
+							<div class="col-lg-8 fv-row fv-plugins-icon-container">
+								<select name="KategoriDurumu" data-placeholder="Durum Seç..." class="form-select form-select-solid form-select-lg fw-bold">
+									@{
+										if (Model.MarkaDurumu == 1)
+										{
+											<option value="1" selected data-select2-id="select2-data-9-s3ki">Aktif</option>
+											<option value="0" data-select2-id="select2-data-9-s3ki">Pasif</option>
+
+										}
+										else
+										{
+											<option value="0" data-select2-id="select2-data-9-s3ki">Pasif</option>
+											<option value="1" data-select2-id="select2-data-9-s3ki">Aktif</option>
+
+										}
+									}
+
+
+								</select>
+
+							</div>
+							<!--end::Col-->
+						</div>
+
+					</div>
+					<!--end::Card body-->
+					<!--begin::Actions-->
+					<div class="card-footer d-flex justify-content-end py-6 px-9">
+						<button type="reset" class="btn btn-light btn-active-light-primary me-2">Vazgeç</button>
+						<button type="submit" class="btn btn-primary" id="kt_account_profile_details_submit">Kaydet</button>
+					</div>
+					<!--end::Actions-->
+					<input type="hidden"><div></div>
+				</form>
+				<!--end::Form-->
+			</div>
+			<!--end::Content-->
+		</div>
+		<!--end::Basic info-->
+
+	</div>
+	<!--end::Container-->
+</div>
+
+

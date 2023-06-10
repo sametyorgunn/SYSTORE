@@ -1,0 +1,38 @@
+﻿@model List<EntityLayer.Entities.Menu>
+
+
+
+
+@{
+    void KategoriListeleme(int? id)
+    {
+            @foreach (var i in Model.Where(x => x.UstMenuId == id).ToList())
+            {
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        @i.MenuAdi
+                    </a>
+                    <ul class="dropdown-menu">
+                        @foreach(var j in Model.Where(z=>z.UstMenuId==i.Id).ToList())
+                        {
+                          <li>
+                          <a class="dropdown-item" href="./category.html">@j.MenuAdi</a>
+                           @if (Model.Where(x => x.UstMenuId == i.Id).Count() > 0)
+                            {
+                                KategoriListeleme(i.Id);
+                            }
+                          </li>
+                        }
+                    </ul>
+                   
+                </li>
+            }
+      
+    }
+    
+}
+<ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+    @{
+        KategoriListeleme(null);
+    }
+</ul>

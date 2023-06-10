@@ -1,0 +1,6 @@
+﻿@model List<EntityLayer.Entities.Marka>
+
+    @foreach(var i in Model)
+    {
+      <option value="@i.Id">@i.MarkaAdi</option>
+    }
