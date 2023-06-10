@@ -6,6 +6,10 @@
 *css linguist-detectable=false
 *html linguist-detectable=false
 *javascript linguist-detectable=false
+*Typescript linguist-detectable=false
+*TypeScript linguist-detectable=false
+*typescript linguist-detectable=false
+
 
 
 ###############################################################################
